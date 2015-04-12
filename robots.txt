@@ -1,0 +1,7 @@
+# Ce fichier permet de dire aux moteurs de recherche quelles sont les pages a ne pas indexer.
+
+# Personne ne doit indexer les images (sauf celles des eglises)
+User-agent: *
+Disallow: /ressources
+Allow: /ressources/imagesOriginales/eglise*.*
+

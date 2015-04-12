@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<!-- Titre de la page -->
+		<title>Nous faire une remarque - Paroisse Notre Dame de l'Assomption</title>
+		
+		<!-- Balises utilisees par les moteurs de recherche pour indexer la page -->
+		<meta name="Author" content="paroisseNdaHam@gmail.com"/>
+		<meta name="Description" content="Site officiel de la paroisse de Ham (80400)"/>
+		<meta name="Keywords" content="Paroisse Ham Eglise contact email"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<!-- Adaptation pour appareils mobiles -->
+		<meta name="viewport" content="width=1024"/>
+		
+		<!-- Feuilles de style pour la mise en forme de la page -->
+		<link href="./ressources/web.css" type="text/css" rel="stylesheet" />
+		<link href="./ressources/normalize.css" type="text/css" rel="stylesheet" />
+		<link rel="stylesheet" href="./ressources/scripts/jquery-ui.css" />
+	</head>
+	<body>
+
+		<!-- Cadre contenant tout -->
+		<div class="conteneur">
+		
+			<!-- Cadre de l'entete -->
+			<div class="fondBlanc  entete">
+				<img src="./ressources/images/entete.jpg" alt="imageEntete" />
+				<div><span>Paroisse Notre Dame de l'Assomption</span><br/>Ham</div>
+			</div>
+			
+			<!-- Cadre du navigation -->
+			<br/>
+			<div class="fondBlanc navigation">
+				<img src="./ressources/imagesOriginales/flecheBleue.png" alt="retour"/>
+				<span>Nous faire une remarque</span>
+				<a href="index.html">(retour &agrave; l'accueil)</a>
+			</div>
+
+			<!-- Cadre du contenu -->
+			<br/>
+			<div class="fondBlanc contenu">
+				<table>
+					<tr>
+						<td colspan="2">
+							Ce formulaire est &agrave; votre disposition pour vous exprimer. Toutes remarques, suggestions et idées sont les bienvenues.
+							<br/>
+							Ce formulaire n'est destiné qu'à l'administrateur du site WEB. Toute demande concernant la paroisse elle-m&ecirc;me sera ignor&eacute;e.
+							<br/><br/><br/><br/>
+						</td>
+					</tr>
+					<tr>
+						<td>Votre adresse email <br/>pour obtenir une r&eacute;ponse (facultatif) :</td>
+						<td><input type="text" id="from" size="40" /></td>
+					</tr>
+					<tr>
+						<td>Votre message (maximum de 5000 caractères) :</td>
+						<td><textarea id="contenu" maxlength="5000" rows="5" cols="70"></textarea></td>
+					</tr>
+					<tr>
+						<td/>
+						<td>
+							<input id="boutonEnvoyer" type="button" value="Envoyer" onclick="sendEmail()"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<!-- Cadre du pied de page -->
+			<br/>
+			<div class="fondBlanc  pied">
+				Site officiel de la paroisse de Ham maintenu par paroisseNdaHam@gmail.com - derni&egrave;re mise &agrave; jour le 15/02/2015 - <a href="./formulaireRemarques.html">pour nous contacter</a>
+			</div>
+			
+		</div>
+		<script type="text/javascript" src="./ressources/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="./ressources/scripts/jquery-ui.min.js"></script>
+		<script type="text/javascript">
+			// Expression reguliere pour les emails
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+			$(document).ready(function() {
+			});
+			
+			function sendEmail() {
+				// Bloquage du bouton
+				$("#boutonEnvoyer").prop('disabled', true);
+
+				// Lecture du formulaire
+				var valeurFrom = $('#from').val();
+				if (valeurFrom === "" || !re.test(valeurFrom)) {
+					valeurFrom = 'paroisseNdaHam@gmail.com';
+				}
+				var valeurContenu = $('#contenu').val();
+				
+				// Execution de l'envoi
+				$.ajax({
+					type: 'POST', url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+					data: { 
+						'key': 'nq5ztw1qtJsp205jCI8Y6w',
+						'message': { 
+							'from_email': valeurFrom,
+							'to': [{'email': 'paroisseNdaHam@gmail.com','type': 'to'}],
+							'autotext': 'true',
+							'subject': 'Remarque venant du site',
+							'html': valeurContenu
+						}
+					}
+				}).done(function(response) {
+					// Message
+					alert("Merci de votre intérêt pour notre site");
+					
+					// Debloquage du bouton
+					$("#boutonEnvoyer").prop('disabled', false);
+				});
+			}
+			// Script utilise pour faire un suivi de la navigation des internautes sur le site avec Google Analytics
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-58117345-1', 'auto');ga('send', 'pageview');
+		</script>
+	</body>
+</html>    

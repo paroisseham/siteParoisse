@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<!-- Titre de la page -->
+		<title>Le calendrier - Paroisse Notre Dame de l'Assomption</title>
+		
+		<!-- Balises utilisees par les moteurs de recherche pour indexer la page -->
+		<meta name="Author" content="paroisseNdaHam@gmail.com"/>
+		<meta name="Description" content="Site officiel de la paroisse de Ham (80400)"/>
+		<meta name="Keywords" content="Paroisse Ham Eglise Calendrier Office Calendrier Horaire Messe Celebration"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<!-- Adaptation pour appareils mobiles -->
+		<meta name="viewport" content="width=1024"/>
+		
+		<!-- Feuilles de style pour la mise en forme de la page -->
+		<link href="./ressources/web.css" type="text/css" rel="stylesheet" />
+		<link href="./ressources/normalize.css" type="text/css" rel="stylesheet" />
+		<link rel="stylesheet" href="./ressources/scripts/jquery-ui.css" />
+		<link rel="stylesheet" href="./ressources/scripts/fullcalendar.min.css" />
+	</head>
+	<body>
+
+		<!-- Cadre contenant tout -->
+		<div class="conteneur">
+		
+			<!-- Cadre de l'entete -->
+			<div class="fondBlanc  entete">
+				<img src="./ressources/images/entete.jpg" alt="imageEntete" />
+				<div><span>Paroisse Notre Dame de l'Assomption</span><br/>Ham</div>
+			</div>
+			
+			<!-- Cadre du navigation -->
+			<br/>
+			<div class="fondBlanc navigation">
+				<img src="./ressources/imagesOriginales/flecheBleue.png" alt="retour"/>
+				<span>Le calendrier des c&eacute;l&eacute;brations </span>
+				<a href="index.html">(retour &agrave; l'accueil)</a>
+			</div>
+
+			<!-- Cadre du contenu -->
+			<br/>
+			<div class="fondBlanc contenu">
+
+				<!-- calendrier -->
+				<div id='calendrier'></div>
+
+				<!-- legende -->
+				<br/>
+				<div id="legende" class="fondBlanc">
+					<table style="color: white;">
+						<tr>
+							<td style="background-color:blue; border-color:blue">Messes</td>
+							<td style="background-color:lightgrey; border-color:lightgrey; color:black">Ev&egrave;nements calendaires</td>
+							<td style="background-color:green; border-color:green">Temps de r&eacute;flexion / pri&egrave;re</td>
+							<td style="background-color:red; border-color:red">R&eacute;union</td>
+							<td style="background-color:grey; border-color:grey">Ev&egrave;nements</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			<!-- Cadre du pied de page -->
+			<br/>
+			<div class="fondBlanc  pied">
+				Site officiel de la paroisse de Ham maintenu par paroisseNdaHam@gmail.com - derni&egrave;re mise &agrave; jour le 06/04/2015 - <a href="./formulaireRemarques.html">pour nous contacter</a>
+			</div>
+			
+		</div>
+		<script type="text/javascript" src="./ressources/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="./ressources/scripts/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="./ressources/scripts/moment.min.js"></script>
+		<script type="text/javascript" src="./ressources/scripts/fullcalendar.min.js"></script>
+		<script type="text/javascript" src="./ressources/scripts/lang-all.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				
+				// Pour alimenter le calendrier
+				// documentation du plugin : http://fullcalendar.io
+				$('#calendrier').fullCalendar({
+					header: {left: 'prev', center: 'title', right: 'next'},
+					defaultDate: new Date(),
+					editable: false,
+					eventLimit: true,
+					lang: "fr",
+					events: [
+						{start: '2015-01-01', title: "Création du site", color: 'lightgrey'}
+						,{start: '2015-01-04', title: "Epiphanie", color: 'lightgrey'}
+						,{start: '2015-02-02', title: "Chandeleur", color: 'lightgrey'}
+						,{start: '2015-02-17', title: "Mardi-Gras", color: 'lightgrey'}
+						,{start: '2015-02-18', title: "Les Cendres", color: 'lightgrey'}
+						,{start: '2015-03-25', title: "Annonciation", color: 'lightgrey'}
+						,{start: '2015-03-29', title: "Les Rameaux", color: 'lightgrey'}
+						,{start: '2015-04-02', title: "Jeudi Saint", color: 'lightgrey'}
+						,{start: '2015-04-03', title: "Vendredi Saint", color: 'lightgrey'}
+						,{start: '2015-04-05', title: "Pâques", color: 'lightgrey'}
+						,{start: '2015-05-14', title: "Ascension", color: 'lightgrey'}
+						,{start: '2015-05-24', title: "Pentecôte", color: 'lightgrey'}
+						,{start: '2015-08-15', title: "Assomption", color: 'lightgrey'}
+						,{start: '2015-11-01', title: "Toussaint", color: 'lightgrey'}
+						,{start: '2015-11-02', title: "Fête des morts", color: 'lightgrey'}
+						,{start: '2015-12-25', title: "Noël", color: 'lightgrey'}
+						,{start: '2015-02-18', title: "Début du Carême", color: 'lightgrey' }
+						,{start: '2015-04-05', title: "Fin du Carême", color: 'lightgrey' }
+						//,{start: '2015-01-01', title: 'Google', url: 'http://google.com/'}
+						
+
+						,{start: '2015-01-04', title: "9h30, messe à Esmery Hallon", color: 'blue'}
+						,{start: '2015-01-04', title: "11h, messe à Ham", color: 'blue'}
+						,{start: '2015-01-05', title: "17h, messe à Ham, chapelle du presbytère", color: 'blue'}
+						,{start: '2015-01-06', title: "9h, messe à Ham, chapelle du presbytère", color: 'blue'}
+						,{start: '2015-01-07', title: "14h30, Cathédrale d'Amiens, deuil de MGR LEULIET", color: 'blue'}
+						,{start: '2015-01-08', title: "14h15, MCR et messe à Ham", color: 'blue'}
+						,{start: '2015-01-08', title: "17h, Chapelet à Esmery Hallon", color: 'green'}
+						,{start: '2015-01-08', title: "18h30, messe à Brouchy", color: 'blue'}
+						,{start: '2015-01-09', title: "17h, Chapelet à Ham", color: 'green'}
+						,{start: '2015-01-09', title: "18h, messe à Ham", color: 'blue'}
+						,{start: '2015-01-09', title: "18h30, messe à Monchy Lagache", color: 'blue'}
+						,{start: '2015-01-10', title: "9h30, messe à Aubigny aux Kaisnes", color: 'blue'}
+						,{start: '2015-01-11', title: "11h, messe des familles à Ham", color: 'blue'}
+						
+						,{start: '2015-01-18', title: "9h30, messe à Moyencourt", color: 'blue'}
+						,{start: '2015-01-18', title: "11h, messe à Ham", color: 'blue'}
+						,{start: '2015-01-19', title: "17h, messe à Canisy", color: 'blue'}
+						,{start: '2015-01-20', title: "17h, messe à Hombleux", color: 'blue'}	
+						,{start: '2015-01-21', title: "17h, messe à Moyencourt", color: 'blue'}	
+						,{start: '2015-01-22', title: "15h, messe à Ercheu, maison de retraite", color: 'blue'}	
+						,{start: '2015-01-23', title: "17h30, chapelet à Ham", color: 'green'}	
+						,{start: '2015-01-23', title: "18h, messe à Ham", color: 'blue'}
+						,{start: '2015-01-24', title: "18h30, messe à Monchy Lagache", color: 'blue'}	
+						,{start: '2015-01-25', title: "9h30, messe à Sancourt", color: 'blue'}	
+						,{start: '2015-01-25', title: "11h, messe à Ham", color: 'blue'}
+						
+						,{start: '2015-01-29', title: "18h, Bible", color: 'green'}		
+						,{start: '2015-01-31', title: "18h30, messe à Nesle", color: 'blue'}
+						,{start: '2015-02-01', title: "9h30, messe à Ercheu", color: 'blue'}
+						
+						,{start: '2015-02-08', title: "consultation pour la nouvelle &eacute;quipe de conduite pastorale", color: 'red'}
+						,{start: '2015-02-08', title: "9h30, messe à Hombleux", color: 'blue'}
+						,{start: '2015-02-08', title: "11h, messe des familles à Ham", color: 'blue'}
+						
+						,{start: '2015-02-11', title: "Renouveau n°11", color: 'grey'}
+						,{start: '2015-02-11', title: "18h, rencontre de l'ECP", color: 'red'}
+						,{start: '2015-02-12', title: "18h, messe à Brouchy", color: 'blue'}
+						,{start: '2015-02-12', title: "20h, 1er temps 'parents et enfants'", color: 'grey'}
+						,{start: '2015-02-13', title: "17h30, Chapelet à Ham", color: 'green'}
+						,{start: '2015-02-13', title: "18h, messe à Ham", color: 'blue'}
+						,{start: '2015-02-14', title: "9h30, Temps Fort Profession de Foi à Nesle", color: 'green'}
+						,{start: '2015-02-14', title: "18h30, messe à Nesle", color: 'blue'}
+						,{start: '2015-02-15', title: "9h30, messe à Douilly", color: 'blue'}
+						,{start: '2015-02-15', title: "11h, messe à Ham", color: 'blue'}
+						
+						,{start: '2015-02-16', title: "18h, messe à Ham, chapelle du presbytère", color: 'blue'}	
+						,{start: '2015-02-17', title: "18h, messe à Hombleux", color: 'blue'}
+						,{start: '2015-02-17', title: "20h, 2nd temps 'parents et enfants'", color: 'grey'}					
+						,{start: '2015-02-18', title: "19h, messe des Cendres à Ham", color: 'blue'}	
+						,{start: '2015-02-19', title: "10h, messe à la maison de retraite de Ham", color: 'blue'}			
+						,{start: '2015-02-19', title: "18h30, messe à Brouchy", color: 'blue'}	
+						,{start: '2015-02-19', title: "18h, Bible", color: 'green'}	
+						,{start: '2015-02-20', title: "17h30, chapelet à Ham", color: 'green'}	
+						,{start: '2015-02-20', title: "18h, messe à Ham", color: 'blue'}	
+						,{start: '2015-02-21', title: "18h30, messe à Monchy Lagache", color: 'blue'}	
+						,{start: '2015-02-21', title: "MRJC, marché; de Ham", color: 'grey'}	
+						,{start: '2015-02-21', title: "MRJC, marché de Brouchy", color: 'grey'}	
+						,{start: '2015-02-22', title: "MRJC, marché de Brouchy", color: 'grey'}	
+						,{start: '2015-02-22', title: "9h30, messe à Villers Saint Christophe", color: 'blue'}	
+						,{start: '2015-02-22', title: "11h, messe à Ham", color: 'blue'}
+						,{start: '2015-02-22', title: "Quète impérée pour les chantiers diocèsains", color: 'grey'}
+						
+						,{start: '2015-02-23', title: "18h, messe à Ham, chapelle du presbytère", color: 'blue'}
+						,{start: '2015-02-24', title: "18h, messe à Hombleux", color: 'blue'}
+						,{start: '2015-02-25', title: "18h, messe à Ham, Chapelle ", color: 'blue'}
+						,{start: '2015-02-25', title: "MRJC, journée 5è/4è", color: 'grey'}
+						,{start: '2015-02-26', title: "15h, messe à Ercheu à la maison de retraite", color: 'blue'}
+						,{start: '2015-02-26', title: "18h30, messe à Brouchy", color: 'blue'}
+						,{start: '2015-02-27', title: "17h30, chapelet à Ham", color: 'green'}
+						,{start: '2015-02-27', title: "18h, messe à Ham", color: 'blue'}
+						,{start: '2015-02-28', title: "18h30, messe à Nesle", color: 'blue'}
+						,{start: '2015-03-01', title: "9h30, messe à Brouchy", color: 'blue'}
+						,{start: '2015-03-01', title: "11h, messe à Ham", color: 'blue'}
+						,{start: '2015-03-01', title: "15h, Théatre à Esmery-Hallon pour l'ADJP", color: 'grey'}
+						,{start: '2015-03-01', title: "Quète impérée pour les chantiers diocèsains", color: 'grey'}
+						
+						,{start: '2015-03-02', title: "18h, messe à Ham, chapelle du presbytère", color: 'blue'}
+						,{start: '2015-03-03', title: "18h, messe à Hombleux", color: 'blue'}
+						,{start: '2015-03-04', title: "18h, messe à Ham, Chapelle ", color: 'blue'}
+						,{start: '2015-03-05', title: "18h30, messe à Brouchy", color: 'blue'}
+						,{start: '2015-03-06', title: "17h30, chapelet à Ham", color: 'green'}
+						,{start: '2015-03-06', title: "18h, messe à Ham", color: 'blue'}
+						,{start: '2015-03-07', title: "18h30, messe à Monchy Lagache", color: 'blue'}
+						,{start: '2015-03-08', title: "9h30, messe à Aubigny aux Kaisnes", color: 'blue'}
+						,{start: '2015-03-08', title: "11h, messe des familles à Ham", color: 'blue'}
+						,{start: '2015-03-08', title: "18h30, chapelet à Esmery-Hallon", color: 'green'}
+						
+						,{start: '2015-03-09', title: "18h, messe à Ham, Chapelle ", color: 'blue'}
+						,{start: '2015-03-10', title: "18h, messe à Hombleux", color: 'blue'}
+						,{start: '2015-03-11', title: "18h, messe à Ham, Chapelle ", color: 'blue'}
+						,{start: '2015-03-11', title: "Renouveau n°12", color: 'grey'}	
+						,{start: '2015-03-12', title: "18h, Bible", color: 'green'}
+						,{start: '2015-03-12', title: "18h30, messe à Brouchy", color: 'blue'}
+						,{start: '2015-03-13', title: "17h30, chapelet à Ham", color: 'green'}
+						,{start: '2015-03-13', title: "18h, messe à Ham", color: 'blue'}
+						,{start: '2015-03-14', title: "18h30, messe à Monchy Lagache", color: 'blue'}
+						,{start: '2015-03-15', title: "9h30, messe à Esmery-Hallon", color: 'blue'}
+						,{start: '2015-03-15', title: "11h, messe à Ham", color: 'blue'}	
+						
+						,{start: '2015-03-16', title: "18h, messe à Ham, Chapelle ", color: 'blue'}
+						,{start: '2015-03-17', title: "18h, messe à Hombleux", color: 'blue'}
+						,{start: '2015-03-19', title: "10h, messe à Ham , Maison de retraite", color: 'blue'}
+						,{start: '2015-03-19', title: "18h30, messe à Brouchy", color: 'blue'}
+						,{start: '2015-03-20', title: "17h30, chapelet à Ham", color: 'green'}
+						,{start: '2015-03-20', title: "18h, messe à Ham", color: 'blue'}	
+						,{start: '2015-03-20', title: "19h, Soirée de Carême à Ham, au presbytère", color: 'grey'}
+						,{start: '2015-03-21', title: "9h-11h, Inscription Lourdes 2015", color: 'grey'}
+						,{start: '2015-03-21', title: "18h30, messe à Nesle", color: 'blue'}
+						,{start: '2015-03-21', title: "19h, messe à Ham", color: 'blue'}
+						,{start: '2015-03-22', title: "11h, messe à Ham: assemblée de prières", color: 'blue'}	
+						
+						,{start: '2015-03-23', title: "18h, messe à Ham, Chapelle ", color: 'blue'}
+						,{start: '2015-03-24', title: "18h, messe à Hombleux", color: 'blue'}
+						,{start: '2015-03-25', title: "18h, messe à Ham, Chapelle ", color: 'blue'}
+						,{start: '2015-03-26', title: "18h, Bible", color: 'green'}
+						,{start: '2015-03-26', title: "18h30, messe à Brouchy", color: 'blue'}
+						,{start: '2015-03-27', title: "14h00, recollection avec le MCR au presbytère", color: 'grey'}
+						,{start: '2015-03-27', title: "17h30, chapelet à Ham", color: 'green'}
+						,{start: '2015-03-27', title: "18h, messe à Ham", color: 'blue'}
+						,{start: '2015-03-27', title: "19h30, célébration pénitentielle à Nesle", color: 'blue'}
+						,{start: '2015-03-28', title: "de 14h30 à 20h, fête de la Réconciliation à Chaulnes", color: 'grey'}	
+						,{start: '2015-03-28', title: "18h30, vers les JMJ 2016 à l'église de St Leu, Amiens", color: 'grey'}
+						,{start: '2015-03-28', title: "18h30, messe à Monchy Lagache", color: 'blue'}
+						,{start: '2015-03-28', title: "9h-11h, Inscription Lourdes 2015", color: 'grey'}
+						,{start: '2015-03-28', title: "8h-12h, MRJC au marché de Ham", color: 'grey'}
+						,{start: '2015-03-29', title: "9h-12h, MRJC au marché de Brouchy", color: 'grey'}
+						,{start: '2015-03-29', title: "9h30, fête des Rameaux, Offoy", color: 'blue'}					
+						,{start: '2015-03-29', title: "11h, messe à Ham", color: 'blue'}	
+						,{start: '2015-03-29', title: "Quète impérée pour les Ecoles Chrétiennes", color: 'grey'}
+						,{start: '2015-03-29', title: "16h, Concert organisé par le Lion's Club, église de Ham", color: 'grey'}
+						,{start: '2015-03-30', end: '2015-04-05', title: "Semaine Sainte", color: 'grey'}
+						
+						,{start: '2015-03-30', title: "9h, nettoyage de l'église de Ham", color: 'grey'}
+						,{start: '2015-03-30', title: "18h, messe à Ham, Chapelle ", color: 'blue'}
+						,{start: '2015-03-31', title: "19h, messe Chrismale à Bray sur Somme ", color: 'blue'}
+						,{start: '2015-04-02', title: "19h, messe à Eppeville, Institution de l'Eucharistie ", color: 'blue'}
+						,{start: '2015-04-03', title: "14h30, Chemin de la Croix à Ham", color: 'blue'}
+						,{start: '2015-04-03', title: "19h, célébration de la Croix à Sancourt ", color: 'blue'}
+						,{start: '2015-04-04', title: "20h30, veillée pascale à Ham", color: 'blue'}
+						,{start: '2015-04-04', title: "21h00, vigile pascale à Nesle", color: 'blue'}
+						,{start: '2015-04-05', title: "10h30, messe à Athies", color: 'blue'}
+						,{start: '2015-04-05', title: "11h, messe de la Résurrection du Christ à Douilly", color: 'blue'}
+						,{start: '2015-04-05', title: "Quète impérée pour les Ecoles Chrétiennes", color: 'grey'}
+						,{start: '2015-04-05', title: "12h, baptêmes à Ham", color: 'blue'}
+						
+						,{start: '2015-04-06', title: "18h, messe à Ham, Chapelle ", color: 'blue'}
+						,{start: '2015-04-09', title: "18h, Bible", color: 'green'}
+						,{start: '2015-04-09', title: "18h30, messe à Brouchy", color: 'blue'}
+						,{start: '2015-04-10', title: "17h30, chapelet à Ham", color: 'green'}
+						,{start: '2015-04-11', title: "Temps Fort Profession de Foi", color: 'green'}
+						,{start: '2015-04-11', title: "18h30, messe à Croix Moligneaux", color: 'blue'}
+						,{start: '2015-04-10', title: "20h-23h00, CPM au presbytère de Ham ", color: 'red'}
+						,{start: '2015-04-12', title: "9h30, messe à Moyencourt", color: 'blue'}
+						,{start: '2015-04-12', title: "11h, messe des familles à Ham", color: 'blue'}
+						,{start: '2015-04-12', title: "vente de gâteaux au profit du CCFD", color: 'blue'}
+						
+						
+						,{start: '2015-04-15', title: "14h00, réunion à propos du site, presbytère de Ham ", color: 'red'}
+						,{start: '2015-04-17', title: "20h-23h00, CPM au presbytère de Ham ", color: 'red'}
+						,{start: '2015-04-18', title: "9h-11h,Inscription Lourdes 2015", color: 'grey'}
+						,{start: '2015-04-19', title: "11h, messe à Ham", color: 'blue'}
+						,{start: '2015-04-19', title: "9h30, messe à Villers Saint Christophe", color: 'blue'}
+						,{start: '2015-04-19', title: "Concert de Printemps", color: 'grey'}
+						
+						,{start: '2015-04-25', title: "9h-11h,Inscription Lourdes 2015", color: 'grey'}
+						,{start: '2015-04-26', title: "11h, messe à Ham", color: 'blue'}
+						,{start: '2015-04-26', title: "9h30, messe à Ercheu", color: 'blue'}
+						
+						,{start: '2015-04-17', end: '2015-05-24', title: "Accueil des reliques de Louis et Zélie Martin", color: 'grey'}
+						,{start: '2015-04-27', end: '2015-04-30', title: "MRJC, mini-camp lycéens à Belloy sur Somme", color: 'grey'}
+						,{start: '2015-05-04', end: '2015-05-06', title: "MRJC, mini-camp 6è à Devise", color: 'grey'}
+						,{start: '2015-05-06', end:'2015-05-09', title: "MRJC, mini-camp collègiens à Muirancourt", color: 'grey'}
+						,{start: '2015-05-02', title: "9h-11h,Inscription Lourdes 2015", color: 'grey'}
+						,{start: '2015-05-03', title: "11h, messe à Ham", color: 'blue'}
+						,{start: '2015-05-03', title: "9h30, messe à Aubigny", color: 'blue'}
+						
+						,{start: '2015-05-09', title: "9h-11h,Inscription Lourdes 2015", color: 'grey'}
+						,{start: '2015-05-10', title: "11h, messe des familles à Ham", color: 'blue'}
+						,{start: '2015-05-10', title: "9h30, messe à Hombleux", color: 'blue'}
+						
+						,{start: '2015-05-15', title: "20h-23h00, CPM au presbytère de Ham ", color: 'red'}
+						,{start: '2015-05-17', title: "11h, messe à Eppeville (Première Communion)", color: 'blue'}
+						,{start: '2015-05-17', title: "9h30, messe à Offoy", color: 'blue'}
+						
+						,{start: '2015-05-22', title: "20h-23h00, CPM au presbytère de Ham ", color: 'red'}
+						,{start: '2015-05-24', title: "11h, messe à Ham", color: 'blue'}
+						,{start: '2015-05-24', title: "9h30, fête de la Pentecôte à Brouchy", color: 'blue'}
+						
+						,{start: '2015-05-30', title: "8h30, 8ème pélerinage des mères de famille, Amiens", color: 'grey'}
+						,{start: '2015-05-31', title: "11h, messe à Ham (Première Communion)", color: 'blue'}
+						,{start: '2015-05-31', title: "9h30, messe à Sancourt", color: 'blue'}
+						
+						,{start: '2015-06-05', title: "20h-23h00, CPM à la salle paroissiale, Nesle ", color: 'red'}
+						,{start: '2015-06-07', title: "11h, messe à Eppeville (Profession de Foi)", color: 'blue'}
+						,{start: '2015-06-07', title: "9h30, messe à Douilly", color: 'blue'}
+						
+						,{start: '2015-06-12', title: "20h-23h00, CPM à la salle paroissiale, Nesle ", color: 'red'}
+						,{start: '2015-06-14', title: "11h, messe à Ham (Profession de Foi)", color: 'blue'}
+						,{start: '2015-06-14', title: "9h30, messe à Ham, chapelle de l'hôpital", color: 'blue'}
+						
+						,{start: '2015-06-21', title: "11h, messe à Ham", color: 'blue'}
+						,{start: '2015-06-21', title: "9h30, messe à Esmery Hallon", color: 'blue'}
+						
+						,{start: '2015-06-28', title: "11h, messe à Ham ", color: 'blue'}
+						,{start: '2015-06-28', title: "9h30, messe à Moyencourt", color: 'blue'}
+						
+						,{start: '2015-07-05', title: "11h, messe à Ham ", color: 'blue'}
+						,{start: '2015-07-05', title: "9h30, messe à Villers Saint Christophe", color: 'blue'}
+						
+						
+						
+						,{start: '2015-10-18', title: "Concert d'Automne", color: 'grey'}
+					]   
+				});
+			});
+			
+			// Script utilise pour faire un suivi de la navigation des internautes sur le site avec Google Analytics
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-58117345-1', 'auto');ga('send', 'pageview');
+		</script>
+	</body>
+</html>                            

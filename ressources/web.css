@@ -1,0 +1,85 @@
+
+
+/********
+ Corps de la page. 
+ ********/
+html body { 
+  margin:0; padding:0; 
+  background: url("./images/2015-03-30 10.45.31.jpg") no-repeat center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+label { display: inline-block; width: 5em; }
+img { border: none; } 
+table { text-align: center; }
+
+/********
+ Configuration de classes comunes
+ ********/
+.fondBlanc { background-color: white; font-family: Helvetica,Arial,sans-serif; font-size: 13px; opacity: 0.93; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=93)"; filter: alpha(opacity=93); -moz-opacity: 0.93; -khtml-opacity: 0.93; }
+
+/********
+ Conteneur permettant de fixer la largeur du cadre et de s'adapter aux différents écrans. 
+ ********/
+.conteneur { width: 900px; margin: 0px auto 0px auto; }
+
+/********
+ Configuration de l'entete.
+ ********/
+.entete  { margin-top: 2px; width: 100%; height: 100px; }
+.entete img { max-width: 250px; max-height: 100px; float: left; }
+.entete div { font-size: 23px; padding-top: 10px; }
+.entete span { font-size: 33px; }
+
+/********
+ Configuration du cadre de navigation.
+ ********/
+.navigation {}
+.navigation img { width: 12px; height: 12px; }
+
+/********
+ Configuration des contenus. 
+ ********/
+.contenu { font-family: Helvetica,Arial,sans-serif; font-size: 14px; }
+.contenu h1 { font-size: 21px; margin-bottom: 0px; }
+.contenu h1.premierTitre { margin-top: 0px; }
+.news li {margin-top: 5px;  }
+#vignettes table { margin: auto; }
+.vignette img { max-height: 150px; }
+.photoDansOnglet { width:300px; float: left; margin-right: 17px; }
+.carousselDansOnglet { float: left; margin-right: 10px; }
+.texteDroiteDePhotoDansOnglet {}
+.ui-tabs-panel { min-height: 400px; }
+.ui-widget-header { background: none!important; border: none!important; }
+.liens { float: right; position: relative; }
+.liensContact { position: absolute; right: 20px; top: 50px; }
+.liens img { width:166px; }
+#divSwipe { bottom: 0px; position: fixed; right: 0px; display:none; z-index:1; background-color: white; }
+#divSwipe img { margin-left: 50px; }
+#legende td { padding: 3px 15px; }
+.ui-loader { display:none!important; }
+
+/********
+ Configuration du pied de page.
+ ********/
+.pied { width: 900px; height: 20px; font-size: 10px; text-align: center; }
+
+/********
+ Configuration pour la page "not_found.html".
+ ********/
+.notFound { width:400px; height:200px; position:absolute; left:50%; top:50%; margin:-100px 0 0 -200px; }
+.notFound a { width:200px; height:100px; position:absolute; left:50%; top:50%; margin:-50px 0 0 -100px; text-align: center;}
+
+/********
+ Configuration pour la page "calendrier.html".
+ ********/
+.fc-title { white-space:pre-wrap; }
+
+/********
+ Configuration pour la page "vieParoisse.html".
+ ********/
+.ui-state-active, .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #FFFFFF!important; }
+
+    
